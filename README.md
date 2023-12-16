@@ -6,36 +6,22 @@
   ```
 - typescript ⇒ yes로 해주기
 - next 12 , react 17
+
   ```jsx
   yarn add next@12.1.0 react@17.0.2 react-dom@17.0.2 --exact
   ```
 
-> ❗️ **라이브러리 하위 모듈 버전 고정하기**사용하고 있는 외부 라이브러리가 의존하는 모듈의 특정 버전으로 고정시키고 싶을 경우
-> \*\*\*\*해주세요.
->
-> **npm 패키지 매니저** 사용 시 **package.json**에 다음을 추가해주세요
->
-> ```jsx
-> {
-> 	"devDependencies": {
-> 	...
-> 	},
-> 	"overrides": {
-> 	"@types/react" : "17.0.2"
-> }
-> ```
-
 - 라이브러리 하위 모듈 고정
   **yarn 패키지 매니저** 사용 시 **package.json** 에 다음을 추가
-      ```jsx
-      {
-      	"devDependencies": {
-      	...
-      	},
-      	"resolutions": {
-      	"@types/react" : "17.0.2"
-      }
-      ```
+  `jsx
+  {
+  	"devDependencies": {
+  	...
+  	},
+  	"resolutions": {
+  	"@types/react" : "17.0.2"
+  }
+  `
 - package.json에서 버젼 동일한 것으로 변경
 - emotion 설치
   ```jsx
@@ -52,6 +38,7 @@
   npx eslint --init
   ```
 - eslint 세부설정
+
   ```jsx
   How would you like to use ESlint ? => syntax, problems, code style
 
@@ -73,6 +60,7 @@
 
   Which package manager do you want to use? => yarn
   ```
+
 - eslint 필요없는 설정 꺼놓기
   ```jsx
   rules: {
