@@ -13,15 +13,16 @@
 
 - 라이브러리 하위 모듈 고정
   **yarn 패키지 매니저** 사용 시 **package.json** 에 다음을 추가
-  `jsx
+  ```jsx
   {
   	"devDependencies": {
   	...
   	},
   	"resolutions": {
   	"@types/react" : "17.0.2"
+    }
   }
-  `
+  ```
 - package.json에서 버젼 동일한 것으로 변경
 - emotion 설치
   ```jsx
