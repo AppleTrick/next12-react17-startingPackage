@@ -1,40 +1,114 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# starting package
 
-## Getting Started
+- next 설치
+  ```jsx
+  npx create-next-app
+  ```
+- typescript ⇒ yes로 해주기
+- next 12 , react 17
+  ```jsx
+  yarn add next@12.1.0 react@17.0.2 react-dom@17.0.2 --exact
+  ```
 
-First, run the development server:
+> ❗️ **라이브러리 하위 모듈 버전 고정하기**사용하고 있는 외부 라이브러리가 의존하는 모듈의 특정 버전으로 고정시키고 싶을 경우
+> \*\*\*\*해주세요.
+>
+> **npm 패키지 매니저** 사용 시 **package.json**에 다음을 추가해주세요
+>
+> ```jsx
+> {
+> 	"devDependencies": {
+> 	...
+> 	},
+> 	"overrides": {
+> 	"@types/react" : "17.0.2"
+> }
+> ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 라이브러리 하위 모듈 고정
+  **yarn 패키지 매니저** 사용 시 **package.json** 에 다음을 추가
+      ```jsx
+      {
+      	"devDependencies": {
+      	...
+      	},
+      	"resolutions": {
+      	"@types/react" : "17.0.2"
+      }
+      ```
+- package.json에서 버젼 동일한 것으로 변경
+- emotion 설치
+  ```jsx
+  **yarn add @emotion/react
+  yarn add @emotion/styled**
+  ```
+- ❗️버젼을 변경했으므로 node_modules를 전부 다 삭제한 이후 yarn install로 재설치
+- eslint 설치
+  ```jsx
+  yarn add eslint
+  ```
+- eslint 설정
+  ```jsx
+  npx eslint --init
+  ```
+- eslint 세부설정
+  ```jsx
+  How would you like to use ESlint ? => syntax, problems, code style
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  Waht type of modiles does your project use? => Javascript modules (import/export)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+  Which framework does your project use? => react
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+  Does your project use TypeScript? => Yes
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+  Where does your code run? => Browser
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  How would you like to define a style for your project? => Use a popular style guide
 
-## Learn More
+  Which style guide do you want to follow? => standard
 
-To learn more about Next.js, take a look at the following resources:
+  What format do you want your config file to be in? => Javascript
+  Checking...
+  ...
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  Which package manager do you want to use? => yarn
+  ```
+- eslint 필요없는 설정 꺼놓기
+  ```jsx
+  rules: {
+      **"react/react-in-jsx-scope": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/strict-boolean-expressions": "off",
+      "@typescript-eslint/no-misused-promises": "off",
+      "@typescript-eslint/triple-slash-reference": "off",**
+    },
+  ```
+- prettier 설치
+  ```jsx
+  yarn add --dev --exact prettier
+  ```
+- eslint & prettier 연결
+  ```jsx
+  yarn add eslint-config-prettier --dev
+  ```
+- eslint의 오류 해결하기 위해 tsconfig의 ".eslintrc.js" 추가
+  ```jsx
+  "include": [
+      "next-env.d.ts",
+      "**/*.ts",
+      "**/*.tsx",
+      ".eslintrc.js"
+    ],
+  ```
+- 원활한 prettier 작동을위해 파일을 위해 .vscode를 최상단 폴더에 만든후에
+  setting.json 파일 생성후 아래 내용 입력
+  ```jsx
+  {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+  ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# 끝
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- package.json 결과
